@@ -1,17 +1,10 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Mar 12 09:06:33 2025
-
-@author: Prashant 
-"""
-
 import cv2
 import pytesseract
 import pandas as pd
 import re
 
 # Configure Tesseract path (Make sure this path is correct)
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+pytesseract.pytesseract.tesseract_cmd = r"C:/Program Files/Tesseract-OCR/tesseract.exe"
 
 def extract_info(text):
     """Extracts name, email, phone, and address from OCR text."""
@@ -69,7 +62,7 @@ def process_card(image_path):
     
     return extract_info(text)
 
-def save_to_excel(data, filename="visiting_cards.xlsx"):
+def save_to_excel(data, filename="E:/Projects/visiting_cards.xlsx"):
     """Saves extracted information to an Excel file."""
     if not data:
         print("No data to save.")
