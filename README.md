@@ -1,1 +1,1 @@
-# AI-Based-Visiting-Card-info-Extractor-
+# AI-Based-Visiting-Card-info-Extracto
