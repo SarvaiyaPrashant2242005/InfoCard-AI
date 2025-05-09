@@ -1,0 +1,103 @@
+2025-05-09 15:02:36,451 - __main__ - INFO - Initializing EasyOCR reader
+2025-05-09 15:02:36,455 - easyocr.easyocr - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2025-05-09 15:02:40,906 - __main__ - INFO - Loading spaCy model
+2025-05-09 15:02:42,241 - __main__ - INFO - Starting Business Card Scanner application
+2025-05-09 15:02:42,404 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-09 15:02:42,413 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-09 15:02:42,430 - werkzeug - INFO -  * Restarting with stat
+2025-05-09 15:02:50,719 - __main__ - INFO - Initializing EasyOCR reader
+2025-05-09 15:02:50,719 - easyocr.easyocr - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2025-05-09 15:02:55,950 - __main__ - INFO - Loading spaCy model
+2025-05-09 15:02:57,194 - __main__ - INFO - Starting Business Card Scanner application
+2025-05-09 15:02:57,226 - werkzeug - WARNING -  * Debugger is active!
+2025-05-09 15:02:57,251 - werkzeug - INFO -  * Debugger PIN: 126-852-331
+2025-05-09 15:03:08,045 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 15:03:08] "GET / HTTP/1.1" 200 -
+2025-05-09 15:03:10,081 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 15:03:10] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-09 15:03:22,597 - __main__ - INFO - File saved: uploads\94dd1fd1-95ae-499c-b0a0-5874a101248c_3.jpg
+2025-05-09 15:03:22,598 - __main__ - INFO - Processing image: uploads\94dd1fd1-95ae-499c-b0a0-5874a101248c_3.jpg
+2025-05-09 15:03:44,427 - __main__ - INFO - Successfully extracted information
+2025-05-09 15:03:49,511 - __main__ - INFO - Data saved to business_cards.xlsx
+2025-05-09 15:03:49,512 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 15:03:49] "POST / HTTP/1.1" 200 -
+2025-05-09 15:04:19,916 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 15:04:19] "[33mGET /view.html HTTP/1.1[0m" 404 -
+2025-05-09 15:04:22,361 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 15:04:22] "GET / HTTP/1.1" 200 -
+2025-05-09 15:05:01,487 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 15:05:01] "[33mGET /view.html HTTP/1.1[0m" 404 -
+2025-05-09 15:07:30,653 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 15:07:30] "GET / HTTP/1.1" 200 -
+2025-05-09 15:08:05,812 - __main__ - INFO - File saved: uploads\be53262f-83c7-4626-a92b-da6dd695d01a_2.jpg
+2025-05-09 15:08:05,812 - __main__ - INFO - Processing image: uploads\be53262f-83c7-4626-a92b-da6dd695d01a_2.jpg
+2025-05-09 15:08:30,348 - __main__ - INFO - File saved: uploads\9cb2008f-dfc9-42f3-a5e6-12ecf44c84d3_2.jpg
+2025-05-09 15:08:30,348 - __main__ - INFO - Processing image: uploads\9cb2008f-dfc9-42f3-a5e6-12ecf44c84d3_2.jpg
+2025-05-09 15:08:30,485 - __main__ - INFO - Successfully extracted information
+2025-05-09 15:08:30,685 - __main__ - INFO - Data saved to business_cards.xlsx
+2025-05-09 15:08:30,707 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 15:08:30] "POST / HTTP/1.1" 200 -
+2025-05-09 15:08:50,395 - __main__ - INFO - Successfully extracted information
+2025-05-09 15:08:50,471 - __main__ - INFO - Data saved to business_cards.xlsx
+2025-05-09 15:08:50,474 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 15:08:50] "POST / HTTP/1.1" 200 -
+2025-05-09 15:09:44,254 - __main__ - INFO - File saved: uploads\ff790d0e-dcbb-4aef-b53d-216912f5b46c_1.jpg
+2025-05-09 15:09:44,255 - __main__ - INFO - Processing image: uploads\ff790d0e-dcbb-4aef-b53d-216912f5b46c_1.jpg
+2025-05-09 15:10:02,505 - __main__ - INFO - Successfully extracted information
+2025-05-09 15:10:02,572 - __main__ - INFO - Data saved to business_cards.xlsx
+2025-05-09 15:10:02,572 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 15:10:02] "POST / HTTP/1.1" 200 -
+2025-05-09 15:10:56,764 - __main__ - INFO - File saved: uploads\ae83b322-9981-4c3e-94d4-54350824c95c_1.jpg
+2025-05-09 15:10:56,764 - __main__ - INFO - Processing image: uploads\ae83b322-9981-4c3e-94d4-54350824c95c_1.jpg
+2025-05-09 15:11:15,425 - __main__ - INFO - Successfully extracted information
+2025-05-09 15:11:15,497 - __main__ - INFO - Data saved to business_cards.xlsx
+2025-05-09 15:11:15,497 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 15:11:15] "POST / HTTP/1.1" 200 -
+2025-05-09 15:12:06,987 - werkzeug - INFO -  * Detected change in 'd:\\AI Project\\New folder (3)\\app.py', reloading
+2025-05-09 15:12:09,510 - werkzeug - INFO -  * Restarting with stat
+2025-05-09 15:12:24,020 - __main__ - INFO - Initializing EasyOCR reader
+2025-05-09 15:12:24,020 - easyocr.easyocr - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2025-05-09 15:12:28,547 - __main__ - INFO - Loading spaCy model
+2025-05-09 15:12:29,896 - __main__ - INFO - Starting Business Card Scanner application
+2025-05-09 15:12:29,932 - werkzeug - WARNING -  * Debugger is active!
+2025-05-09 15:12:29,960 - werkzeug - INFO -  * Debugger PIN: 126-852-331
+2025-05-09 15:16:45,509 - werkzeug - INFO -  * Detected change in 'd:\\AI Project\\New folder (3)\\app.py', reloading
+2025-05-09 15:16:46,241 - werkzeug - INFO -  * Restarting with stat
+2025-05-09 15:16:54,368 - __main__ - INFO - Initializing EasyOCR reader
+2025-05-09 15:16:54,368 - easyocr.easyocr - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2025-05-09 15:16:58,212 - __main__ - INFO - Loading spaCy model
+2025-05-09 15:16:59,092 - __main__ - INFO - Starting Business Card Scanner application
+2025-05-09 15:16:59,123 - werkzeug - WARNING -  * Debugger is active!
+2025-05-09 15:16:59,125 - werkzeug - INFO -  * Debugger PIN: 126-852-331
+2025-05-09 15:17:26,525 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 15:17:26] "GET / HTTP/1.1" 200 -
+2025-05-09 15:17:32,674 - __main__ - INFO - File saved: uploads\59867a32-49c6-4ac1-909f-d799f2e99abc_1.jpg
+2025-05-09 15:17:32,694 - __main__ - INFO - Processing image: uploads\59867a32-49c6-4ac1-909f-d799f2e99abc_1.jpg
+2025-05-09 15:17:52,514 - __main__ - INFO - Successfully extracted information
+2025-05-09 15:17:53,637 - __main__ - INFO - Data saved to business_cards.xlsx
+2025-05-09 15:17:53,645 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 15:17:53] "POST / HTTP/1.1" 200 -
+2025-05-09 15:29:24,001 - werkzeug - INFO -  * Detected change in 'd:\\AI Project\\New folder (3)\\app.py', reloading
+2025-05-09 15:29:25,071 - werkzeug - INFO -  * Restarting with stat
+2025-05-09 15:29:36,112 - __main__ - INFO - Initializing EasyOCR reader
+2025-05-09 15:29:36,114 - easyocr.easyocr - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2025-05-09 15:29:40,604 - __main__ - INFO - Loading spaCy model
+2025-05-09 15:29:41,656 - __main__ - INFO - Starting Business Card Scanner application
+2025-05-09 15:29:41,690 - werkzeug - WARNING -  * Debugger is active!
+2025-05-09 15:29:41,705 - werkzeug - INFO -  * Debugger PIN: 126-852-331
+2025-05-09 15:29:46,150 - __main__ - INFO - File saved: uploads\ed66eb3f-cb05-458e-ae55-d132b2260cc2_1.jpg
+2025-05-09 15:29:46,165 - __main__ - INFO - Processing image: uploads\ed66eb3f-cb05-458e-ae55-d132b2260cc2_1.jpg
+2025-05-09 15:30:00,038 - __main__ - INFO - File saved: uploads\f95d8d98-3eed-4fb3-89ec-7606d007e9a3_1.jpg
+2025-05-09 15:30:00,082 - __main__ - INFO - Processing image: uploads\f95d8d98-3eed-4fb3-89ec-7606d007e9a3_1.jpg
+2025-05-09 15:30:10,755 - __main__ - ERROR - Error extracting information: not enough values to unpack (expected 4, got 1)
+2025-05-09 15:30:10,800 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 15:30:10] "POST / HTTP/1.1" 200 -
+2025-05-09 15:30:23,640 - __main__ - ERROR - Error extracting information: not enough values to unpack (expected 4, got 1)
+2025-05-09 15:30:23,640 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 15:30:23] "POST / HTTP/1.1" 200 -
+2025-05-09 15:30:46,661 - __main__ - INFO - File saved: uploads\f3bb2862-9bc9-45a7-a4aa-3c43b852966e_1.jpg
+2025-05-09 15:30:46,664 - __main__ - INFO - Processing image: uploads\f3bb2862-9bc9-45a7-a4aa-3c43b852966e_1.jpg
+2025-05-09 15:31:03,775 - __main__ - ERROR - Error extracting information: not enough values to unpack (expected 4, got 1)
+2025-05-09 15:31:03,775 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 15:31:03] "POST / HTTP/1.1" 200 -
+2025-05-09 15:31:30,997 - __main__ - INFO - File saved: uploads\315e9028-03c4-4376-8dc9-8f6a49a05d94_2.jpg
+2025-05-09 15:31:30,997 - __main__ - INFO - Processing image: uploads\315e9028-03c4-4376-8dc9-8f6a49a05d94_2.jpg
+2025-05-09 15:31:49,219 - __main__ - ERROR - Error extracting information: not enough values to unpack (expected 4, got 1)
+2025-05-09 15:31:49,221 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 15:31:49] "POST / HTTP/1.1" 200 -
+2025-05-09 15:33:05,497 - __main__ - INFO - File saved: uploads\b1ca1e6c-0ead-435f-960d-fa06affc8451_1.jpg
+2025-05-09 15:33:05,497 - __main__ - INFO - Processing image: uploads\b1ca1e6c-0ead-435f-960d-fa06affc8451_1.jpg
+2025-05-09 15:33:22,901 - __main__ - ERROR - Error extracting information: not enough values to unpack (expected 4, got 1)
+2025-05-09 15:33:22,903 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 15:33:22] "POST / HTTP/1.1" 200 -
+2025-05-09 15:33:47,309 - werkzeug - INFO -  * Detected change in 'd:\\AI Project\\New folder (3)\\app.py', reloading
+2025-05-09 15:33:49,157 - werkzeug - INFO -  * Restarting with stat
+2025-05-09 15:34:03,668 - __main__ - INFO - Initializing EasyOCR reader
+2025-05-09 15:34:03,668 - easyocr.easyocr - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2025-05-09 15:34:07,634 - __main__ - INFO - Loading spaCy model
+2025-05-09 15:34:08,630 - __main__ - INFO - Starting Business Card Scanner application
+2025-05-09 15:34:08,646 - werkzeug - WARNING -  * Debugger is active!
+2025-05-09 15:34:08,682 - werkzeug - INFO -  * Debugger PIN: 126-852-331
