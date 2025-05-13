@@ -53,6 +53,188 @@ def calculate_font_size(box):
     )
     return height
 
+def extract_indian_phone_numbers(text):
+    """
+    Extract Indian phone numbers from text with specific constraints:
+    - 10 digits
+    - May start with country code +91 or 91
+    - First digit should be 6, 7, 8, or 9
+    """
+    # Pattern for Indian phone numbers with various formats
+    patterns = [
+        # Format: +91 XXXXXXXXXX or 91 XXXXXXXXXX
+        r'(?:\+91|91)[-\s]?[6-9]\d{9}',
+        # Format: XXXXXXXXXX (10 digits starting with 6-9)
+        r'\b[6-9]\d{9}\b',
+        # Format with hyphens or spaces: XXXXX XXXXX or XXXXX-XXXXX
+        r'\b[6-9]\d{4}[-\s]\d{5}\b',
+        # Format: (XXXXX) XXXXX
+        r'\(\d{5}\)[-\s]?\d{5}',
+    ]
+    
+    all_matches = []
+    for pattern in patterns:
+        matches = re.findall(pattern, text)
+        all_matches.extend(matches)
+    
+    # Clean and format phone numbers
+    cleaned_numbers = []
+    for num in all_matches:
+        # Remove non-digit characters except the + sign
+        cleaned = re.sub(r'[^\d+]', '', num)
+        
+        # Check if it has proper length after country code
+        if cleaned.startswith('+91'):
+            if len(cleaned) == 13:  # +91 + 10 digits
+                cleaned_numbers.append(cleaned)
+        elif cleaned.startswith('91'):
+            if len(cleaned) == 12:  # 91 + 10 digits
+                cleaned_numbers.append('+' + cleaned)
+        else:
+            if len(cleaned) == 10 and cleaned[0] in '6789':
+                cleaned_numbers.append('+91' + cleaned)
+    
+    return list(set(cleaned_numbers))  # Remove duplicates
+
+def extract_address_components(text, doc):
+    """
+    Extract address components including place names, city names, and PIN codes
+    using both NER and pattern matching
+    """
+    address_components = {
+        'place_names': [],
+        'city_names': [],
+        'pin_codes': [],
+        'street_addresses': [],
+        'full_address': ''
+    }
+    
+    # Extract location entities using spaCy
+    for ent in doc.ents:
+        if ent.label_ == "GPE":  # GeoPolitical Entity (cities, states, countries)
+            address_components['city_names'].append(ent.text)
+        elif ent.label_ == "LOC":  # Location
+            address_components['place_names'].append(ent.text)
+    
+    # Extract Indian PIN codes (6 digits)
+    pin_pattern = r'\b\d{6}\b'
+    pins = re.findall(pin_pattern, text)
+    address_components['pin_codes'] = pins
+    
+    # Extract street addresses
+    street_patterns = [
+        # Common street patterns
+        r'\d+\s+[A-Za-z0-9\s,]+(?:Road|Rd|Street|St|Avenue|Ave|Lane|Ln|Boulevard|Blvd|Drive|Dr|Way|Place|Pl)\b',
+        # Pattern for floor/suite/apartment numbers
+        r'(?:Floor|Fl|Suite|Ste|Apartment|Apt|Unit)\s+\d+\b',
+        # Pattern for building/complex names
+        r'[A-Za-z]+\s+(?:Building|Complex|Tower|Plaza|Arcade|Mall|Center|Centre)\b'
+    ]
+    
+    for pattern in street_patterns:
+        matches = re.findall(pattern, text, re.IGNORECASE)
+        address_components['street_addresses'].extend(matches)
+    
+    # Common Indian state names to help with address extraction
+    indian_states = [
+        "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", 
+        "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", 
+        "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", 
+        "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal",
+        "Delhi", "Jammu and Kashmir", "Ladakh", "Puducherry", "Chandigarh", "Andaman and Nicobar Islands",
+        "Dadra and Nagar Haveli", "Daman and Diu", "Lakshadweep"
+    ]
+    
+    # Look for state names in the text
+    for state in indian_states:
+        if state.lower() in text.lower():
+            address_components['place_names'].append(state)
+    
+    # Try to identify lines that look like complete addresses
+    lines = text.split('\n')
+    for line in lines:
+        # Look for lines with pin codes
+        if any(pin in line for pin in pins):
+            address_components['full_address'] = line.strip()
+            break
+    
+    # If no complete address found, try to assemble one
+    if not address_components['full_address']:
+        address_parts = []
+        if address_components['street_addresses']:
+            address_parts.extend(address_components['street_addresses'])
+        if address_components['place_names']:
+            address_parts.extend(address_components['place_names'])
+        if address_components['city_names']:
+            address_parts.extend(address_components['city_names'])
+        if address_components['pin_codes']:
+            address_parts.extend(address_components['pin_codes'])
+        
+        address_components['full_address'] = ', '.join(address_parts)
+    
+    return address_components
+
+def extract_person_name(doc, full_text, business_name, text_with_sizes=None):
+    """
+    Extract person names using NER and additional heuristics
+    """
+    # Use spaCy Named Entity Recognition for person names
+    person_entities = [ent.text for ent in doc.ents if ent.label_ == "PERSON"]
+    
+    # Look for text that might include common name patterns
+    name_patterns = [
+        r'\b[A-Z][a-z]+ [A-Z][a-z]+\b',  # First Last
+        r'\b[A-Z][a-z]+ [A-Z]\. [A-Z][a-z]+\b',  # First M. Last
+        r'\b[A-Z][a-z]+ [A-Z][a-z]+ [A-Z][a-z]+\b',  # First Middle Last
+        r'\bDr\.\s+[A-Z][a-z]+ [A-Z][a-z]+\b',  # Dr. First Last
+        r'\bMr\.\s+[A-Z][a-z]+ [A-Z][a-z]+\b',  # Mr. First Last
+        r'\bMs\.\s+[A-Z][a-z]+ [A-Z][a-z]+\b',  # Ms. First Last
+        r'\bMrs\.\s+[A-Z][a-z]+ [A-Z][a-z]+\b',  # Mrs. First Last
+    ]
+    
+    name_matches = []
+    for pattern in name_patterns:
+        matches = re.findall(pattern, full_text)
+        name_matches.extend(matches)
+    
+    # Look for job titles that often appear next to names
+    job_titles = [
+        "CEO", "Chief Executive Officer", "CTO", "Chief Technology Officer", 
+        "CFO", "Chief Financial Officer", "COO", "Chief Operating Officer",
+        "Director", "Managing Director", "President", "Vice President", "VP",
+        "Manager", "General Manager", "Chairman", "Founder", "Co-Founder",
+        "Executive", "Partner", "Associate", "Consultant", "Specialist", 
+        "Engineer", "Developer", "Analyst", "Designer", "Architect"
+    ]
+    
+    # Look for lines with job titles and extract names
+    lines = full_text.split('\n')
+    for line in lines:
+        if any(title in line for title in job_titles):
+            # If job title found, look for name pattern in the same line
+            for pattern in name_patterns:
+                matches = re.findall(pattern, line)
+                name_matches.extend(matches)
+    
+    # Look for potential name in lines with medium-sized font if text_with_sizes is provided
+    if text_with_sizes and len(text_with_sizes) > 1:
+        # Create a list of tuples from the first 5 items (or fewer if less available)
+        potential_name_lines = text_with_sizes[:min(5, len(text_with_sizes))]
+        # Check lines with medium font size
+        for text, size, _, _ in potential_name_lines[1:3]:  # Look at 2nd and 3rd lines
+            if 4.0 <= size <= 8.0 and re.match(r'^[A-Z][a-z]+(?: [A-Z][a-z]+)+$', text):
+                name_matches.append(text)
+    
+    # Combine all candidates and remove duplicates
+    person_candidates = list(dict.fromkeys(person_entities + name_matches))
+    
+    # Filter out business name from person names
+    if business_name != "Not Found":
+        person_candidates = [name for name in person_candidates 
+                          if name.lower() != business_name.lower()]
+    
+    return person_candidates
+
 def extract_info(image_path):
     """Extract information from business card image using font size detection"""
     logger.info(f"Processing image: {image_path}")
@@ -107,7 +289,7 @@ def extract_info(image_path):
             else:
                 normalized_sizes = np.ones_like(font_size_array) * 5
                 
-            # Create a list of tuples (text, font_size, position)
+            # Create a list of tuples (text, font_size, position, box)
             text_with_sizes = list(zip(lines, normalized_sizes, line_positions, line_boxes))
             
             # Log detected text with sizes for debugging
@@ -119,6 +301,9 @@ def extract_info(image_path):
             
             # Initialize extracted data
             extracted_data = {}
+            
+            # Parse the text with spaCy
+            doc = nlp(full_text)
             
             # BUSINESS NAME EXTRACTION LOGIC
             # Method 1: Use the text with largest font size
@@ -139,7 +324,6 @@ def extract_info(image_path):
                 business_name_candidates.append(top_lines[0])
             
             # Method 3: Look for organizational entities with spaCy
-            doc = nlp(full_text)
             org_entities = [ent.text for ent in doc.ents if ent.label_ == "ORG"]
             if org_entities:
                 business_name_candidates.append(org_entities[0])
@@ -165,7 +349,8 @@ def extract_info(image_path):
             
             # Check for business indicators in the string
             business_indicators = ['inc', 'llc', 'ltd', 'corp', 'gmbh', 'co', 'company', 'enterprises', 
-                                  'group', 'services', 'solutions', 'technologies', 'associates']
+                                  'group', 'services', 'solutions', 'technologies', 'associates',
+                                  'pvt', 'private', 'limited', 'industries', 'international']
             
             for text, size, _, _ in text_with_sizes:
                 if any(indicator in text.lower() for indicator in business_indicators):
@@ -181,28 +366,8 @@ def extract_info(image_path):
             else:
                 extracted_data["Business Name"] = "Not Found"
             
-            # EXTRACT PERSON NAME
-            # Use spaCy Named Entity Recognition
-            person_entities = [ent.text for ent in doc.ents if ent.label_ == "PERSON"]
-            
-            # Look for text that might include common name patterns
-            name_patterns = [
-                r'\b[A-Z][a-z]+ [A-Z][a-z]+\b',  # First Last
-                r'\b[A-Z][a-z]+ [A-Z]\. [A-Z][a-z]+\b'  # First M. Last
-            ]
-            
-            name_matches = []
-            for pattern in name_patterns:
-                matches = re.findall(pattern, full_text)
-                name_matches.extend(matches)
-            
-            # Combine with spaCy results and remove duplicates
-            person_candidates = list(dict.fromkeys(person_entities + name_matches))
-            
-            # Filter out business name from person names
-            if extracted_data["Business Name"] != "Not Found":
-                person_candidates = [name for name in person_candidates 
-                                    if name != extracted_data["Business Name"]]
+            # EXTRACT PERSON NAME using enhanced NER
+            person_candidates = extract_person_name(doc, full_text, extracted_data["Business Name"], text_with_sizes)
             
             extracted_data["Person Name"] = ", ".join(person_candidates) if person_candidates else "Not Found"
             
@@ -212,9 +377,15 @@ def extract_info(image_path):
                 if lines[1] != extracted_data["Business Name"]:
                     extracted_data["Person Name"] = lines[1]
             
-            # Extract phone numbers
-            phone_pattern = r'(?:\+\d{1,3}[-.\s]?)?(?:\(?\d{3}\)?[-.\s]?)?\d{3}[-.\s]?\d{4}'
-            phone_numbers = re.findall(phone_pattern, full_text)
+            # EXTRACT PHONE NUMBERS using enhanced regex for Indian numbers
+            phone_numbers = extract_indian_phone_numbers(full_text)
+            
+            # Fallback to general phone number pattern if no Indian format found
+            if not phone_numbers:
+                phone_pattern = r'(?:\+\d{1,3}[-.\s]?)?(?:\(?\d{3}\)?[-.\s]?)?\d{3}[-.\s]?\d{4}'
+                general_phone_numbers = re.findall(phone_pattern, full_text)
+                phone_numbers = general_phone_numbers
+            
             extracted_data["Phone Number"] = ", ".join(phone_numbers) if phone_numbers else "Not Found"
             
             # Extract emails
@@ -227,27 +398,15 @@ def extract_info(image_path):
             websites = re.findall(website_pattern, full_text)
             extracted_data["Website"] = ", ".join(websites) if websites else "Not Found"
             
-            # Extract address components
-            address_entities = [ent.text for ent in doc.ents if ent.label_ in ["GPE", "LOC"]]
+            # Extract address components using enhanced function
+            address_info = extract_address_components(full_text, doc)
             
-            # Look for postal codes
-            postal_code_pattern = r'\b\d{5}(?:-\d{4})?\b'  # US postal code pattern
-            postal_codes = re.findall(postal_code_pattern, full_text)
+            # Store full address
+            extracted_data["Address"] = address_info['full_address'] if address_info['full_address'] else "Not Found"
             
-            # Look for address patterns
-            address_patterns = [
-                r'\d+\s+[A-Za-z0-9\s,]+(?:Avenue|Ave|Boulevard|Blvd|Street|St|Road|Rd|Lane|Ln|Drive|Dr|Way|Court|Ct|Plaza|Plz|Place|Pl)\b',
-                r'\d+\s+[A-Za-z0-9\s,]+(?:Suite|Ste|Floor|Fl|Unit|Apt|Apartment)\s+\d+\b'
-            ]
-            
-            address_matches = []
-            for pattern in address_patterns:
-                matches = re.findall(pattern, full_text, re.IGNORECASE)
-                address_matches.extend(matches)
-            
-            # Combine all address components
-            address_components = address_entities + postal_codes + address_matches
-            extracted_data["Address"] = ", ".join(address_components) if address_components else "Not Found"
+            # Store specific address components
+            extracted_data["City"] = ", ".join(address_info['city_names']) if address_info['city_names'] else "Not Found"
+            extracted_data["PIN Code"] = ", ".join(address_info['pin_codes']) if address_info['pin_codes'] else "Not Found"
             
             # Store raw text for verification
             extracted_data["Raw Text"] = full_text
@@ -434,6 +593,8 @@ def export_vcard(row_id):
                 f"EMAIL:{record['Email']}",
                 f"URL:{record['Website']}" if record['Website'] != "Not Found" else "",
                 f"ADR;TYPE=WORK:;;{record['Address']}" if record['Address'] != "Not Found" else "",
+                # Add PIN code if available
+                f"NOTE:PIN: {record['PIN Code']}" if record['PIN Code'] != "Not Found" else "",
                 "END:VCARD"
             ]
             
