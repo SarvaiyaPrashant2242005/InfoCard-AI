@@ -1,272 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InfoCard AI</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            padding-top: 2rem;
-            background-color: #f8f9fa;
-        }
-        .card {
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 1.5rem;
-        }
-        .result-card {
-            background-color: #fff;
-            border-radius: 8px;
-            margin-top: 1rem;
-        }
-        .upload-area {
-            border: 2px dashed #6c757d;
-            border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
-            cursor: pointer;
-            background-color: #f8f9fa;
-            transition: all 0.3s;
-        }
-        .upload-area:hover {
-            border-color: #0d6efd;
-            background-color: #f1f3f5;
-        }
-        .file-input {
-            display: none;
-        }
-        .header {
-            background: linear-gradient(135deg, #13547a 0%, #80d0c7 100%);
-            color: white;
-            padding: 1.5rem 0;
-            margin-bottom: 2rem;
-            border-radius: 0 0 10px 10px;
-        }
-        .info-row {
-            padding: 0.75rem;
-            border-bottom: 1px solid #e9ecef;
-        }
-        .info-row:last-child {
-            border-bottom: none;
-        }
-        .nav-pills .nav-link.active {
-            background-color: #13547a;
-        }
-        .btn-primary {
-            background-color: #13547a;
-            border-color: #13547a;
-        }
-        .btn-primary:hover {
-            background-color: #0f4561;
-            border-color: #0f4561;
-        }
-        .upload-icon {
-            font-size: 3rem;
-            color: #6c757d;
-            margin-bottom: 1rem;
-        }
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/11.7.3/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/11.7.3/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/11.7.3/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/11.7.3/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/11.7.3/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/11.7.3/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/11.7.3/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/11.7.3/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/11.7.3/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/11.7.3/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
     </style>
-</head>
-<body>
-    <div class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <h1>InfoCard AI</h1>
-                    <p class="lead">Upload a business card image to extract contact information</p>
-                </div>
-                <div class="col-md-4 text-end d-flex align-items-center justify-content-end">
-                    <ul class="nav nav-pills">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="/view">View Data</a>
-                        </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ url_for('download_excel') }}">Download</a>
-                        </li> -->
-                    </ul>
-                </div>
-            </div>
-        </div>
+  </head>
+  <body>
+    <div id="message">
+      <h2>Welcome</h2>
+      <h1>Firebase Hosting Setup Complete</h1>
+      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
+      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
     </div>
+    <p id="load">Firebase SDK Loading&hellip;</p>
 
-    <div class="container">
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        {{ message }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header bg-primary text-white">
-                        <h5 class="card-title mb-0">Upload Business Card</h5>
-                    </div>
-                    <div class="card-body">
-                        <form action="/" method="post" enctype="multipart/form-data" id="upload-form">
-                            <div class="upload-area" id="drop-area">
-                                <div class="upload-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-cloud-arrow-up" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M7.646 5.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708l2-2z"/>
-                                        <path d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383zm.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z"/>
-                                    </svg>
-                                </div>
-                                <h5>Drag & Drop or Click to Upload</h5>
-                                <p class="text-muted">Supported formats: JPG, PNG, JPEG, GIF, TIFF, BMP</p>
-                                <input type="file" name="card" id="file-input" class="file-input" accept=".jpg,.jpeg,.png,.gif,.tif,.tiff,.bmp">
-                                <button type="button" class="btn btn-primary mt-3" id="browse-btn">Browse Files</button>
-                            </div>
-                            <div class="text-center mt-3">
-                                <button type="submit" class="btn btn-success" id="submit-btn" disabled>Extract Information</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                {% if result %}
-                <div class="card result-card">
-                    <div class="card-header bg-success text-white">
-                        <h5 class="card-title mb-0">Extracted Information</h5>
-                        <small>From: {{ filename }}</small>
-                    </div>
-                    <div class="card-body p-0">
-                        <div class="info-row">
-                            <strong>Business Name:</strong> 
-                            <span class="float-end">{{ result['Business Name'] }}</span>
-                        </div>
-                        <div class="info-row">
-                            <strong>Person Name:</strong> 
-                            <span class="float-end">{{ result['Person Name'] }}</span>
-                        </div>
-                        <div class="info-row">
-                            <strong>Phone Number:</strong> 
-                            <span class="float-end">{{ result['Phone Number'] }}</span>
-                        </div>
-                        <div class="info-row">
-                            <strong>Email:</strong> 
-                            <span class="float-end">{{ result['Email'] }}</span>
-                        </div>
-                        <div class="info-row">
-                            <strong>Website:</strong> 
-                            <span class="float-end">{{ result['Website'] }}</span>
-                        </div>
-                        <div class="info-row">
-                            <strong>Address:</strong> 
-                            <span class="float-end">{{ result['Address'] }}</span>
-                        </div>
-                        <div class="info-row">
-                            <strong>Raw Text:</strong>
-                            <div class="mt-2">
-                                <textarea class="form-control" rows="5" readonly>{{ result['Raw Text'] }}</textarea>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {% else %}
-                <div class="card">
-                    <div class="card-header bg-info text-white">
-                        <h5 class="card-title mb-0">Instructions</h5>
-                    </div>
-                    <div class="card-body">
-                        <h5>How it works:</h5>
-                        <ol>
-                            <li>Upload a clear image of a business card</li>
-                            <li>Our system will extract key information using OCR technology</li>
-                            <li>View the extracted data and confirm its accuracy</li>
-                            <li>Data is automatically saved to an Excel spreadsheet</li>
-                            <li>Download the Excel file or view all stored data</li>
-                        </ol>
-                        <div class="alert alert-info">
-                            <strong>Tip:</strong> For best results, ensure the business card image is well-lit, in focus, and the text is clearly visible.
-                        </div>
-                    </div>
-                </div>
-                {% endif %}
-            </div>
-        </div>
-    </div>
-
-    <footer class="mt-5 py-3 bg-light">
-        <div class="container text-center">
-            <p class="text-muted mb-0">InfoCard AI &copy; 2025</p>
-        </div>
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const dropArea = document.getElementById('drop-area');
-            const fileInput = document.getElementById('file-input');
-            const browseBtn = document.getElementById('browse-btn');
-            const submitBtn = document.getElementById('submit-btn');
+      document.addEventListener('DOMContentLoaded', function() {
+        const loadEl = document.querySelector('#load');
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        // firebase.analytics(); // call to activate
+        // firebase.analytics().logEvent('tutorial_completed');
+        // firebase.performance(); // call to activate
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
-            // Open file selector when clicking on the upload area
-            browseBtn.addEventListener('click', function() {
-                fileInput.click();
-            });
-
-            dropArea.addEventListener('click', function() {
-                fileInput.click();
-            });
-
-            // Drag and drop functionality
-            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-                dropArea.addEventListener(eventName, preventDefaults, false);
-            });
-
-            function preventDefaults(e) {
-                e.preventDefault();
-                e.stopPropagation();
-            }
-
-            ['dragenter', 'dragover'].forEach(eventName => {
-                dropArea.addEventListener(eventName, highlight, false);
-            });
-
-            ['dragleave', 'drop'].forEach(eventName => {
-                dropArea.addEventListener(eventName, unhighlight, false);
-            });
-
-            function highlight() {
-                dropArea.classList.add('bg-light');
-            }
-
-            function unhighlight() {
-                dropArea.classList.remove('bg-light');
-            }
-
-            dropArea.addEventListener('drop', handleDrop, false);
-
-            function handleDrop(e) {
-                const dt = e.dataTransfer;
-                const files = dt.files;
-                fileInput.files = files;
-                updateFileName(files[0]);
-            }
-
-            fileInput.addEventListener('change', function() {
-                if (fileInput.files.length > 0) {
-                    updateFileName(fileInput.files[0]);
-                }
-            });
-
-            function updateFileName(file) {
-                if (file) {
-                    browseBtn.textContent = file.name;
-                    submitBtn.disabled = false;
-                }
-            }
-        });
+        try {
+          let app = firebase.app();
+          let features = [
+            'auth', 
+            'database', 
+            'firestore',
+            'functions',
+            'messaging', 
+            'storage', 
+            'analytics', 
+            'remoteConfig',
+            'performance',
+          ].filter(feature => typeof app[feature] === 'function');
+          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
