@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Card Scanner</title>
+    <title>InfoCard AI</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -72,10 +72,22 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <h1>Business Card Scanner</h1>
+                    <h1>InfoCard AI</h1>
                     <p class="lead">Upload a business card image to extract contact information</p>
                 </div>
-    
+                <div class="col-md-4 text-end d-flex align-items-center justify-content-end">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/view">View Data</a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ url_for('download_excel') }}">Download</a>
+                        </li> -->
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -186,7 +198,7 @@
 
     <footer class="mt-5 py-3 bg-light">
         <div class="container text-center">
-            <p class="text-muted mb-0">Business Card Scanner &copy; 2025</p>
+            <p class="text-muted mb-0">InfoCard AI &copy; 2025</p>
         </div>
     </footer>
 

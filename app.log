@@ -182,3 +182,136 @@
 2025-05-13 22:38:09,707 - __main__ - INFO - Successfully extracted information
 2025-05-13 22:38:12,358 - __main__ - INFO - Data saved to business_cards.xlsx
 2025-05-13 22:38:12,358 - werkzeug - INFO - 127.0.0.1 - - [13/May/2025 22:38:12] "POST / HTTP/1.1" 200 -
+2025-05-15 13:00:05,084 - __main__ - INFO - Initializing EasyOCR reader
+2025-05-15 13:00:05,129 - easyocr.easyocr - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2025-05-15 13:00:09,649 - __main__ - INFO - Loading spaCy model
+2025-05-15 13:00:11,575 - __main__ - INFO - Starting Business Card Scanner application
+2025-05-15 13:00:11,971 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-15 13:00:11,971 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-15 13:00:11,998 - werkzeug - INFO -  * Restarting with stat
+2025-05-15 13:00:21,672 - __main__ - INFO - Initializing EasyOCR reader
+2025-05-15 13:00:21,679 - easyocr.easyocr - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2025-05-15 13:00:26,436 - __main__ - INFO - Loading spaCy model
+2025-05-15 13:00:27,589 - __main__ - INFO - Starting Business Card Scanner application
+2025-05-15 13:00:27,619 - werkzeug - WARNING -  * Debugger is active!
+2025-05-15 13:00:27,653 - werkzeug - INFO -  * Debugger PIN: 126-852-331
+2025-05-15 13:00:40,462 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:00:40] "GET / HTTP/1.1" 200 -
+2025-05-15 13:00:41,683 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:00:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-15 13:01:05,750 - __main__ - INFO - File saved: uploads\aa40633c-8f8f-4619-b76d-230c875a7689_3.jpg
+2025-05-15 13:01:05,750 - __main__ - INFO - Processing image: uploads\aa40633c-8f8f-4619-b76d-230c875a7689_3.jpg
+2025-05-15 13:01:15,901 - __main__ - INFO - File saved: uploads\9264d999-801a-4ecf-ae44-1f7b2e8dc6c9_3.jpg
+2025-05-15 13:01:15,901 - __main__ - INFO - Processing image: uploads\9264d999-801a-4ecf-ae44-1f7b2e8dc6c9_3.jpg
+2025-05-15 13:01:31,361 - __main__ - INFO - Successfully extracted information
+2025-05-15 13:01:36,082 - __main__ - INFO - Data saved to business_cards.xlsx
+2025-05-15 13:01:36,084 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:01:36] "POST / HTTP/1.1" 200 -
+2025-05-15 13:01:39,551 - __main__ - INFO - Successfully extracted information
+2025-05-15 13:01:39,656 - __main__ - INFO - Data saved to business_cards.xlsx
+2025-05-15 13:01:39,668 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:01:39] "POST / HTTP/1.1" 200 -
+2025-05-15 13:51:13,532 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:51:13] "GET / HTTP/1.1" 200 -
+2025-05-15 13:51:18,990 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:51:18] "GET /view HTTP/1.1" 200 -
+2025-05-15 13:51:23,333 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:51:23] "GET /download HTTP/1.1" 200 -
+2025-05-15 13:51:39,463 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:51:39] "[33mGET /index.html HTTP/1.1[0m" 404 -
+2025-05-15 13:52:16,433 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:52:16] "[33mGET /index.html HTTP/1.1[0m" 404 -
+2025-05-15 13:52:28,996 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:52:28] "GET /view HTTP/1.1" 200 -
+2025-05-15 13:52:33,396 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:52:33] "[33mGET /index.html HTTP/1.1[0m" 404 -
+2025-05-15 13:52:42,536 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:52:42] "GET /view HTTP/1.1" 200 -
+2025-05-15 13:52:43,932 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:52:43] "[36mGET /download HTTP/1.1[0m" 304 -
+2025-05-15 13:52:54,460 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:52:54] "[33mGET /index.html HTTP/1.1[0m" 404 -
+2025-05-15 13:53:43,022 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:53:43] "GET /view HTTP/1.1" 200 -
+2025-05-15 13:53:46,115 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:53:46] "[33mGET /index.html HTTP/1.1[0m" 404 -
+2025-05-15 13:53:48,798 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:53:48] "GET /view HTTP/1.1" 200 -
+2025-05-15 13:53:54,641 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:53:54] "GET /view HTTP/1.1" 200 -
+2025-05-15 13:57:49,136 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:57:49] "[35m[1mGET /view HTTP/1.1[0m" 500 -
+2025-05-15 13:57:49,256 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:57:49] "GET /view?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-05-15 13:57:49,288 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:57:49] "GET /view?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-05-15 13:57:49,447 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:57:49] "GET /view?__debugger__=yes&cmd=resource&f=console.png&s=nuMILu6s2NZ1F3X3oHnD HTTP/1.1" 200 -
+2025-05-15 13:57:49,800 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:57:49] "GET /view?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-05-15 13:57:54,251 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:57:54] "[35m[1mGET /view HTTP/1.1[0m" 500 -
+2025-05-15 13:57:54,310 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:57:54] "[36mGET /view?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-05-15 13:57:54,337 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:57:54] "[36mGET /view?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-05-15 13:57:54,401 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:57:54] "[36mGET /view?__debugger__=yes&cmd=resource&f=console.png&s=nuMILu6s2NZ1F3X3oHnD HTTP/1.1[0m" 304 -
+2025-05-15 13:57:54,791 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:57:54] "[36mGET /view?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-05-15 13:58:02,251 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 13:58:02] "GET /view HTTP/1.1" 200 -
+2025-05-15 14:04:41,462 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:04:41] "GET / HTTP/1.1" 200 -
+2025-05-15 14:04:45,254 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:04:45] "[35m[1mGET /view HTTP/1.1[0m" 500 -
+2025-05-15 14:04:45,338 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:04:45] "[36mGET /view?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-05-15 14:04:45,339 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:04:45] "[36mGET /view?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-05-15 14:04:45,392 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:04:45] "[36mGET /view?__debugger__=yes&cmd=resource&f=console.png&s=nuMILu6s2NZ1F3X3oHnD HTTP/1.1[0m" 304 -
+2025-05-15 14:04:45,785 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:04:45] "[36mGET /view?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-05-15 14:05:01,830 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:05:01] "[35m[1mGET /view HTTP/1.1[0m" 500 -
+2025-05-15 14:05:01,897 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:05:01] "[36mGET /view?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-05-15 14:05:01,903 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:05:01] "[36mGET /view?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-05-15 14:05:01,951 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:05:01] "[36mGET /view?__debugger__=yes&cmd=resource&f=console.png&s=nuMILu6s2NZ1F3X3oHnD HTTP/1.1[0m" 304 -
+2025-05-15 14:05:08,579 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:05:08] "GET / HTTP/1.1" 200 -
+2025-05-15 14:05:11,516 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:05:11] "GET /view HTTP/1.1" 200 -
+2025-05-15 14:07:10,956 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:07:10] "GET /view HTTP/1.1" 200 -
+2025-05-15 14:07:12,906 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:07:12] "[33mGET /index.html HTTP/1.1[0m" 404 -
+2025-05-15 14:07:43,697 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:07:43] "[33mGET /index.html HTTP/1.1[0m" 404 -
+2025-05-15 14:09:05,388 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:09:05] "GET /view HTTP/1.1" 200 -
+2025-05-15 14:09:07,507 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:09:07] "[33mGET /templates/index.html HTTP/1.1[0m" 404 -
+2025-05-15 14:09:14,288 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:09:14] "[33mGET /templates/index.html HTTP/1.1[0m" 404 -
+2025-05-15 14:09:16,196 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:09:16] "[33mGET /templates/index.html HTTP/1.1[0m" 404 -
+2025-05-15 14:09:56,015 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:09:56] "GET /view HTTP/1.1" 200 -
+2025-05-15 14:10:01,141 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:10:01] "[33mGET /index.html HTTP/1.1[0m" 404 -
+2025-05-15 14:10:24,116 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:10:24] "GET /view HTTP/1.1" 200 -
+2025-05-15 14:10:26,096 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:10:26] "[33mGET /index.html HTTP/1.1[0m" 404 -
+2025-05-15 14:10:30,291 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:10:30] "GET / HTTP/1.1" 200 -
+2025-05-15 14:10:33,432 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:10:33] "GET /view HTTP/1.1" 200 -
+2025-05-15 14:14:22,464 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:14:22] "[35m[1mGET /view HTTP/1.1[0m" 500 -
+2025-05-15 14:14:22,555 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:14:22] "[36mGET /view?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-05-15 14:14:22,575 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:14:22] "[36mGET /view?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-05-15 14:14:22,632 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:14:22] "[36mGET /view?__debugger__=yes&cmd=resource&f=console.png&s=nuMILu6s2NZ1F3X3oHnD HTTP/1.1[0m" 304 -
+2025-05-15 14:14:23,197 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:14:23] "[36mGET /view?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-05-15 14:14:32,292 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:14:32] "GET / HTTP/1.1" 200 -
+2025-05-15 14:14:35,079 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:14:35] "[35m[1mGET /view HTTP/1.1[0m" 500 -
+2025-05-15 14:14:35,133 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:14:35] "[36mGET /view?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-05-15 14:14:35,158 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:14:35] "[36mGET /view?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-05-15 14:14:35,199 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:14:35] "[36mGET /view?__debugger__=yes&cmd=resource&f=console.png&s=nuMILu6s2NZ1F3X3oHnD HTTP/1.1[0m" 304 -
+2025-05-15 14:14:44,148 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:14:44] "GET /view HTTP/1.1" 200 -
+2025-05-15 14:15:45,426 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:15:45] "[33mGET /index.html HTTP/1.1[0m" 404 -
+2025-05-15 14:16:58,091 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:16:58] "[36mGET /download HTTP/1.1[0m" 304 -
+2025-05-15 14:17:56,358 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:17:56] "[33mGET /index.html HTTP/1.1[0m" 404 -
+2025-05-15 14:18:36,899 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:18:36] "GET /view HTTP/1.1" 200 -
+2025-05-15 14:18:38,591 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:18:38] "GET / HTTP/1.1" 200 -
+2025-05-15 14:18:40,096 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:18:40] "GET /view HTTP/1.1" 200 -
+2025-05-15 14:18:41,013 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:18:41] "GET / HTTP/1.1" 200 -
+2025-05-15 14:18:48,717 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:18:48] "GET / HTTP/1.1" 200 -
+2025-05-15 14:18:50,737 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:18:50] "GET /view HTTP/1.1" 200 -
+2025-05-15 14:18:51,654 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:18:51] "GET / HTTP/1.1" 200 -
+2025-05-15 14:18:52,419 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:18:52] "GET /view HTTP/1.1" 200 -
+2025-05-15 14:19:16,654 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:19:16] "GET /view HTTP/1.1" 200 -
+2025-05-15 14:19:17,959 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:19:17] "GET / HTTP/1.1" 200 -
+2025-05-15 14:19:18,672 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:19:18] "GET / HTTP/1.1" 200 -
+2025-05-15 14:19:19,768 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:19:19] "GET / HTTP/1.1" 200 -
+2025-05-15 14:27:53,703 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:27:53] "GET / HTTP/1.1" 200 -
+2025-05-15 14:27:54,424 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:27:54] "GET / HTTP/1.1" 200 -
+2025-05-15 14:27:54,947 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:27:54] "GET / HTTP/1.1" 200 -
+2025-05-15 14:27:55,557 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:27:55] "GET / HTTP/1.1" 200 -
+2025-05-15 14:27:55,920 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:27:55] "GET / HTTP/1.1" 200 -
+2025-05-15 14:27:56,289 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:27:56] "GET / HTTP/1.1" 200 -
+2025-05-15 14:27:56,716 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:27:56] "GET / HTTP/1.1" 200 -
+2025-05-15 14:27:56,888 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:27:56] "GET / HTTP/1.1" 200 -
+2025-05-15 14:27:57,239 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:27:57] "GET / HTTP/1.1" 200 -
+2025-05-15 14:27:57,737 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:27:57] "GET / HTTP/1.1" 200 -
+2025-05-15 14:27:58,004 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:27:58] "GET / HTTP/1.1" 200 -
+2025-05-15 14:27:58,442 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:27:58] "GET / HTTP/1.1" 200 -
+2025-05-15 14:27:58,798 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:27:58] "GET / HTTP/1.1" 200 -
+2025-05-15 14:27:59,061 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:27:59] "GET / HTTP/1.1" 200 -
+2025-05-15 14:27:59,411 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:27:59] "GET / HTTP/1.1" 200 -
+2025-05-15 14:27:59,901 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:27:59] "GET / HTTP/1.1" 200 -
+2025-05-15 14:28:00,198 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:28:00] "GET / HTTP/1.1" 200 -
+2025-05-15 14:28:00,757 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:28:00] "[33mGET /templates/favicon_svg.svg HTTP/1.1[0m" 404 -
+2025-05-15 14:28:17,923 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:28:17] "GET / HTTP/1.1" 200 -
+2025-05-15 14:28:19,490 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:28:19] "GET / HTTP/1.1" 200 -
+2025-05-15 14:29:23,138 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:29:23] "GET / HTTP/1.1" 200 -
+2025-05-15 14:29:29,661 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:29:29] "GET / HTTP/1.1" 200 -
+2025-05-15 14:30:17,640 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:30:17] "GET / HTTP/1.1" 200 -
+2025-05-15 14:30:18,682 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:30:18] "GET / HTTP/1.1" 200 -
+2025-05-15 14:30:19,690 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:30:19] "GET / HTTP/1.1" 200 -
+2025-05-15 14:31:57,446 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:31:57] "GET / HTTP/1.1" 200 -
+2025-05-15 14:31:57,912 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:31:57] "[33mGET /favicon.png HTTP/1.1[0m" 404 -
+2025-05-15 14:31:58,681 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:31:58] "GET / HTTP/1.1" 200 -
+2025-05-15 14:32:01,033 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:32:01] "GET / HTTP/1.1" 200 -
+2025-05-15 14:33:00,594 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:33:00] "GET / HTTP/1.1" 200 -
+2025-05-15 14:33:01,890 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:33:01] "GET / HTTP/1.1" 200 -
