@@ -27,6 +27,7 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'tif', 'tiff', 'bmp'}
 
 # Create directories if they don't exist
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+os.makedirs("data", exist_ok=True)  # Create data directory for name datasets if it doesn't exist
 
 # Initialize EasyOCR and spaCy
 try:
@@ -52,6 +53,54 @@ def calculate_font_size(box):
         abs(box[1][1] - box[3][1])
     )
     return height
+
+def validate_against_name_datasets(name_text):
+    """
+    Validate a potential name against the first and last name datasets
+    Returns True if the name appears valid based on the datasets, False otherwise
+    """
+    try:
+        # Path to your name datasets
+        first_names_file = "data/first_names.csv"
+        last_names_file = "data/last_names.csv"
+        
+        # Only proceed if at least one file exists
+        if not (os.path.exists(first_names_file) or os.path.exists(last_names_file)):
+            logger.warning("Name datasets not found, skipping validation")
+            return True  # Skip validation if datasets aren't available
+        
+        # Clean and split the name
+        words = name_text.strip().split()
+        if len(words) < 2:
+            return False  # Not a full name
+        
+        first_name = words[0].lower()
+        last_name = words[-1].lower()
+        
+        # Check against first names dataset
+        first_name_valid = True  # Assume valid if we can't check
+        if os.path.exists(first_names_file):
+            with open(first_names_file, 'r', encoding='utf-8') as f:
+                first_names = {line.strip().lower() for line in f if line.strip()}
+                first_name_valid = first_name in first_names
+        
+        # Check against last names dataset
+        last_name_valid = True  # Assume valid if we can't check
+        if os.path.exists(last_names_file):
+            with open(last_names_file, 'r', encoding='utf-8') as f:
+                last_names = {line.strip().lower() for line in f if line.strip()}
+                last_name_valid = last_name in last_names
+        
+        # For short names (2 words), we want both to be valid
+        # For longer names, we'll be more lenient
+        if len(words) == 2:
+            return first_name_valid and last_name_valid
+        else:
+            return first_name_valid or last_name_valid
+            
+    except Exception as e:
+        logger.error(f"Error validating name against datasets: {str(e)}")
+        return True  # In case of error, accept the name
 
 def extract_indian_phone_numbers(text):
     """
@@ -176,7 +225,7 @@ def extract_address_components(text, doc):
 
 def extract_person_name(doc, full_text, business_name, text_with_sizes=None):
     """
-    Extract person names using NER and additional heuristics
+    Extract person names using NER, additional heuristics, and reference to external name datasets
     """
     # Use spaCy Named Entity Recognition for person names
     person_entities = [ent.text for ent in doc.ents if ent.label_ == "PERSON"]
@@ -233,7 +282,17 @@ def extract_person_name(doc, full_text, business_name, text_with_sizes=None):
         person_candidates = [name for name in person_candidates 
                           if name.lower() != business_name.lower()]
     
-    return person_candidates
+    # ENHANCEMENT: Verify names against the external name datasets
+    validated_candidates = []
+    for candidate in person_candidates:
+        # Add to validated list if it passes validation (or if we have no datasets to validate against)
+        if validate_against_name_datasets(candidate):
+            validated_candidates.append(candidate)
+    
+    # If we have validated candidates, use those; otherwise fall back to original candidates
+    final_candidates = validated_candidates if validated_candidates else person_candidates
+    
+    return final_candidates
 
 def extract_info(image_path):
     """Extract information from business card image using font size detection"""
@@ -366,7 +425,7 @@ def extract_info(image_path):
             else:
                 extracted_data["Business Name"] = "Not Found"
             
-            # EXTRACT PERSON NAME using enhanced NER
+            # EXTRACT PERSON NAME using enhanced NER with dataset validation
             person_candidates = extract_person_name(doc, full_text, extracted_data["Business Name"], text_with_sizes)
             
             extracted_data["Person Name"] = ", ".join(person_candidates) if person_candidates else "Not Found"
