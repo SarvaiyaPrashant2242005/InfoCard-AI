@@ -315,3 +315,53 @@
 2025-05-15 14:32:01,033 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:32:01] "GET / HTTP/1.1" 200 -
 2025-05-15 14:33:00,594 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:33:00] "GET / HTTP/1.1" 200 -
 2025-05-15 14:33:01,890 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 14:33:01] "GET / HTTP/1.1" 200 -
+2025-05-15 15:49:06,955 - __main__ - INFO - Initializing EasyOCR reader
+2025-05-15 15:49:06,958 - easyocr.easyocr - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2025-05-15 15:49:11,300 - __main__ - INFO - Loading spaCy model
+2025-05-15 15:49:12,533 - __main__ - INFO - Starting Business Card Scanner application
+2025-05-15 15:49:12,703 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-15 15:49:12,704 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-15 15:49:12,719 - werkzeug - INFO -  * Restarting with stat
+2025-05-15 15:49:22,469 - __main__ - INFO - Initializing EasyOCR reader
+2025-05-15 15:49:22,471 - easyocr.easyocr - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2025-05-15 15:49:33,293 - __main__ - INFO - Loading spaCy model
+2025-05-15 15:49:35,219 - __main__ - INFO - Starting Business Card Scanner application
+2025-05-15 15:49:35,269 - werkzeug - WARNING -  * Debugger is active!
+2025-05-15 15:49:35,325 - werkzeug - INFO -  * Debugger PIN: 126-852-331
+2025-05-15 15:49:43,178 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 15:49:43] "GET / HTTP/1.1" 200 -
+2025-05-15 15:50:25,899 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 15:50:25] "GET /view HTTP/1.1" 200 -
+2025-05-15 15:50:27,664 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 15:50:27] "GET / HTTP/1.1" 200 -
+2025-05-15 15:55:53,261 - __main__ - INFO - Initializing EasyOCR reader
+2025-05-15 15:55:53,765 - easyocr.easyocr - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2025-05-15 15:55:57,635 - __main__ - INFO - Loading spaCy model
+2025-05-15 15:55:58,624 - __main__ - INFO - Starting Business Card Scanner application
+2025-05-15 15:55:58,691 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-15 15:55:58,691 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-15 15:55:58,691 - werkzeug - INFO -  * Restarting with stat
+2025-05-15 15:56:08,892 - __main__ - INFO - Initializing EasyOCR reader
+2025-05-15 15:56:08,892 - easyocr.easyocr - WARNING - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+2025-05-15 15:56:13,075 - __main__ - INFO - Loading spaCy model
+2025-05-15 15:56:14,112 - __main__ - INFO - Starting Business Card Scanner application
+2025-05-15 15:56:14,124 - werkzeug - WARNING -  * Debugger is active!
+2025-05-15 15:56:14,161 - werkzeug - INFO -  * Debugger PIN: 126-852-331
+2025-05-15 15:56:20,585 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 15:56:20] "GET / HTTP/1.1" 200 -
+2025-05-15 15:56:25,741 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 15:56:25] "GET /view HTTP/1.1" 200 -
+2025-05-15 15:56:28,036 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 15:56:28] "GET / HTTP/1.1" 200 -
+2025-05-15 15:56:29,565 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 15:56:29] "GET /view HTTP/1.1" 200 -
+2025-05-15 15:56:31,487 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 15:56:31] "GET / HTTP/1.1" 200 -
+2025-05-15 15:56:32,344 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 15:56:32] "GET /view HTTP/1.1" 200 -
+2025-05-15 15:56:34,867 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 15:56:34] "GET / HTTP/1.1" 200 -
+2025-05-15 15:56:35,711 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 15:56:35] "GET /view HTTP/1.1" 200 -
+2025-05-15 15:56:37,263 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 15:56:37] "GET / HTTP/1.1" 200 -
+2025-05-15 15:56:38,231 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 15:56:38] "GET /view HTTP/1.1" 200 -
+2025-05-15 15:57:04,460 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 15:57:04] "GET /view HTTP/1.1" 200 -
+2025-05-15 15:57:07,828 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 15:57:07] "GET /view HTTP/1.1" 200 -
+2025-05-15 15:57:09,694 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 15:57:09] "GET /view HTTP/1.1" 200 -
+2025-05-15 15:57:14,872 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 15:57:14] "GET / HTTP/1.1" 200 -
+2025-05-15 15:57:16,080 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 15:57:16] "GET /view HTTP/1.1" 200 -
+2025-05-15 15:57:56,011 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 15:57:56] "GET / HTTP/1.1" 200 -
+2025-05-15 15:57:57,379 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 15:57:57] "GET /view HTTP/1.1" 200 -
+2025-05-15 15:57:59,253 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 15:57:59] "GET / HTTP/1.1" 200 -
+2025-05-15 15:58:00,095 - werkzeug - INFO - 127.0.0.1 - - [15/May/2025 15:58:00] "GET /view HTTP/1.1" 200 -
