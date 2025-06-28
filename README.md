@@ -24,5 +24,5 @@ InfoCard AI is a web application designed to extract information from business c
 2. Upload a business card image.
 3. View the extracted information and download the Excel file.
 
-## License
-This project is licensed under the MIT License.
+## Explanation 
+Youtube : https://youtu.be/fPSclhZj8x4
